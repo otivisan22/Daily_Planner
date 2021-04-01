@@ -13,9 +13,13 @@ const renderCalendarEvents = () => {
     //declare a variable to get currentHour
     const currentHour = 11;
     const timeBlocks= $(".container .row");
+    //iterate array
     const callback = function() {
+      //get value 
       const timeBlockTime= Number.parseInt($ (this).data("time"), 10);
+      //check value time in time
       if (timeBlockTime === currentHour) {
+        //get child/remove from container
        $(this).find("textarea").removeClass("past").addClass("present");
       }
        if(timeBlockTime > currentHour) {
@@ -23,15 +27,28 @@ const renderCalendarEvents = () => {
         console.log("future");
       }
       
+      const plannedEvent = plannerEvents[timeBlockTime];
+      textArea.text(plannedEvent);
+
+
     };
-    console.log(timeBlocks);
+    
     timeBlocks.each(callback);
   } else {
-    localStorage.setItem("plannerEvents", JSON.stringify({}));
+    //add an empty array in the local storage
+    localStorage.setItem("plannerEvents", JSON.stringify({9: "hej",14:"älska"}));
   }
 };
 
+const onClick= function(){
+  console.log("save button clicked");
+
+}
+
 const onReady = () => {
+  //event listener container
+  $(".container").click(onClick);
+  currentTime();
   console.log("Ålskä");
 
   //renderCurrentTime
@@ -41,4 +58,5 @@ const onReady = () => {
   renderCalendarEvents();
 };
 
+//function window displaying
 $(document).ready(onReady);

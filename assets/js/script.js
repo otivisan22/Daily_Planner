@@ -12,55 +12,53 @@ const renderCalendarEvents = () => {
   if (plannerEvents !== null) {
     //declare a variable to get currentHour
     const currentHour = 11;
-    const timeBlocks= $(".container .row");
+    const timeBlocks = $(".container .row");
     //iterate array
-    const callback = function() {
-      //get value 
-      const timeBlockTime= Number.parseInt($ (this).data("time"), 10);
+    const callback = function () {
+      //get value
+      const timeBlockTime = Number.parseInt($(this).data("time"), 10);
       //check value time in time
       if (timeBlockTime === currentHour) {
         //get child/remove from container
-       $(this).find("textarea").removeClass("past").addClass("present");
+        $(this).find("textarea").removeClass("past").addClass("present");
       }
-       if(timeBlockTime > currentHour) {
+      if (timeBlockTime > currentHour) {
         $(this).find("textarea").removeClass("past").addClass("future");
         console.log("future");
       }
-      
+
       const plannedEvent = plannerEvents[timeBlockTime];
       textArea.text(plannedEvent);
-
-
     };
-    
+
     timeBlocks.each(callback);
   } else {
     //add an empty array in the local storage
-    localStorage.setItem("plannerEvents", JSON.stringify({9: "hej",14:"älska"}));
+    localStorage.setItem(
+      "plannerEvents",
+      JSON.stringify({ 9: "hej", 14: "älska" })
+    );
   }
 };
 
-const onClick= function(){
-  const target= $(Event.target);
-  const currentTarget= $(Event.currentTarget);
-  if (target.is ("button")) {
-    const key= target.attr("id");
+const onClick = function () {
+  const target = $(Event.target);
+  const currentTarget = $(Event.currentTarget);
+  if (target.is("button")) {
+    const key = target.attr("id");
     const value = target.parent().find("textarea").val();
 
-    const newObject ={
+    const newObject = {
       ...plannerEvents,
-      [key]: value
-    }
-localStorage.getItem("plannerEvents",JSON.stringify(newObject));
-    
-  
+      [key]: value,
+    };
+    localStorage.getItem("plannerEvents", JSON.stringify(newObject));
+
     console.log(key, value);
     console.log(newObject);
-    
   }
   console.log("save button clicked");
-
-}
+};
 
 const onReady = () => {
   //event listener container
@@ -69,7 +67,7 @@ const onReady = () => {
   console.log("Ålskä");
 
   //renderCurrentTime
-  render renderCurrentDate();
+  renderCurrentDate();
 
   //check for events
   renderCalendarEvents();

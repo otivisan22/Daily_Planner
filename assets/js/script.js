@@ -11,12 +11,19 @@ const renderCalendarEvents = () => {
 
   if (plannerEvents !== null) {
     //declare a variable to get currentHour
-    const currentHour = moment().hour();
+    const currentHour = 11;
     const timeBlocks= $(".container .row");
     const callback = function() {
       const timeBlockTime= Number.parseInt($ (this).data("time"), 10);
-      console.log(timeBlockTime);
-    }
+      if (timeBlockTime === currentHour) {
+       $(this).find("textarea").removeClass("past").addClass("present");
+      }
+       if(timeBlockTime > currentHour) {
+        $(this).find("textarea").removeClass("past").addClass("future");
+        console.log("future");
+      }
+      
+    };
     console.log(timeBlocks);
     timeBlocks.each(callback);
   } else {

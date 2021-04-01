@@ -8,7 +8,7 @@ const renderCalendarEvents = () => {
   const plannerEvents = localStorage.getItem("plannerEvents");
 
   if (plannerEvents !== null) {
-    console.log("render the data in the table");
+    //declare a variable to get currentHour
   } else {
     localStorage.setItem("plannerEvents", JSON.stringify({}));
   }

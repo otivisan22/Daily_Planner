@@ -41,6 +41,10 @@ const renderCalendarEvents = () => {
 };
 
 const onClick= function(){
+  const target= $(Event.target);
+  if (target.is ("button")) {
+    
+  }
   console.log("save button clicked");
 
 }

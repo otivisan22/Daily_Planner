@@ -13,7 +13,12 @@ const renderCalendarEvents = () => {
     //declare a variable to get currentHour
     const currentHour = moment().hour();
     const timeBlocks= $(".container .row");
-    
+    const callback = function() {
+      const timeBlockTime= Number.parseInt($ (this).data("time"), 10);
+      console.log(timeBlockTime);
+    }
+    console.log(timeBlocks);
+    timeBlocks.each(callback);
   } else {
     localStorage.setItem("plannerEvents", JSON.stringify({}));
   }

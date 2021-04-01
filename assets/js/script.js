@@ -1,3 +1,4 @@
+//Declared variable for CurrentDate
 const renderCurrentDate = () => {
   const dateTime = $("#currentDay");
   const displayNow = moment().format("dddd, MMMM Do");
@@ -5,6 +6,7 @@ const renderCurrentDate = () => {
 };
 
 const renderCalendarEvents = () => {
+  //Declared the variable for local storage
   const plannerEvents = localStorage.getItem("plannerEvents");
 
   if (plannerEvents !== null) {

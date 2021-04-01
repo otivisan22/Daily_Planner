@@ -42,7 +42,20 @@ const renderCalendarEvents = () => {
 
 const onClick= function(){
   const target= $(Event.target);
+  const currentTarget= $(Event.currentTarget);
   if (target.is ("button")) {
+    const key= target.attr("id");
+    const value = target.parent().find("textarea").val();
+
+    const newObject ={
+      ...plannerEvents,
+      [key]: value
+    }
+localStorage.getItem("plannerEvents",JSON.stringify(newObject));
+    
+  
+    console.log(key, value);
+    console.log(newObject);
     
   }
   console.log("save button clicked");

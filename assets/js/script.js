@@ -2,33 +2,33 @@
 const renderCurrentDate = () => {
   const dateTime = $("#currentDay");
   const displayNow = moment().format("dddd, MMMM Do");
-  console.log(displayNow);
 };
+
+//const currentTime = () => {};
 
 const renderCalendarEvents = () => {
   //Get from local storage
-  const plannerEvents = localStorage.getItem("plannerEvents");
+  const plannerEvents = JSON.parse(localStorage.getItem("plannerEvents"));
 
   if (plannerEvents !== null) {
     //declare a variable to get currentHour
-    const currentHour = 11;
+    const currentHour = moment().hour();
     const timeBlocks = $(".container .row");
     //iterate array
     const callback = function () {
+      const textarea = $(this).find("textarea");
       //get value
       const timeBlockTime = Number.parseInt($(this).data("time"), 10);
       //check value time in time
       if (timeBlockTime === currentHour) {
         //get child/remove from container
-        $(this).find("textArea").removeClass("past").addClass("present");
+        textarea.removeClass("past").addClass("present");
       }
       if (timeBlockTime > currentHour) {
-        $(this).find("textArea").removeClass("past").addClass("future");
-        console.log("future");
+        textarea.removeClass("past").addClass("future");
       }
-
       const plannedEvent = plannerEvents[timeBlockTime];
-      textArea.text(plannedEvent);
+      textarea.text(plannedEvent);
     };
 
     timeBlocks.each(callback);
@@ -47,24 +47,21 @@ const onClick = function () {
   if (target.is("button")) {
     const key = target.attr("id");
     const value = target.parent().find("textArea").val();
-
+    const plannerEvents = JSON.parse(localStorage.getItem("plannerEvents"));
     const newObject = {
       ...plannerEvents,
       [key]: value,
     };
-    localStorage.getItem("plannerEvents", JSON.stringify(newObject));
 
-    console.log(key, value);
-    console.log(newObject);
+    localStorage.setItem("plannerEvents", JSON.stringify(newObject));
   }
-  console.log("save button clicked");
 };
 
 const onReady = () => {
   //event listener container
   $(".container").click(onClick);
-  currentTime();
-  console.log("Ålskä");
+
+  //currentTime();
 
   //renderCurrentTime
   renderCurrentDate();

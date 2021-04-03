@@ -42,8 +42,8 @@ const renderCalendarEvents = () => {
 };
 
 const onClick = function () {
-  const target = $(Event.target);
-  const currentTarget = $(Event.currentTarget);
+  const target = $(event.target);
+  const currentTarget = $(event.currentTarget);
   if (target.is("button")) {
     const key = target.attr("id");
     const value = target.parent().find("textarea").val();

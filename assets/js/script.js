@@ -20,10 +20,10 @@ const renderCalendarEvents = () => {
       //check value time in time
       if (timeBlockTime === currentHour) {
         //get child/remove from container
-        $(this).find("textarea").removeClass("past").addClass("present");
+        $(this).find("textArea").removeClass("past").addClass("present");
       }
       if (timeBlockTime > currentHour) {
-        $(this).find("textarea").removeClass("past").addClass("future");
+        $(this).find("textArea").removeClass("past").addClass("future");
         console.log("future");
       }
 
@@ -46,7 +46,7 @@ const onClick = function () {
   const currentTarget = $(event.currentTarget);
   if (target.is("button")) {
     const key = target.attr("id");
-    const value = target.parent().find("textarea").val();
+    const value = target.parent().find("textArea").val();
 
     const newObject = {
       ...plannerEvents,

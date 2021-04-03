@@ -2,6 +2,8 @@
 
 ## Description
 
+Our task was to create a daily planner in order to add important events in the schedule for any employee with a busy schedule. Following the busy schedule on an employee this daily planner needs to save each activity that has been added to the schedule and needs also to show the current day. On the other hand we have timeblocks that will indicate important events whether it is in the past, future or present.
+
 ### Link to the deployed application https://otivisan22.github.io/Daily_Planner/.
 
 # Getting started
@@ -20,18 +22,19 @@ code .
 - Added a more complex title for this project
 - Used Semantic HTML Elements
 - Formatted code using lint (prettier)
-- Formatted the CSS style according to the HTML Semantic elements
-- Used a flex container in order to have a more accessible and clean styling format
+- Added the timeblocks to HTML
 - Created the JavaScript file
 - Checked if the JavaScript file is linked to the html.index
-- Declared the function that generates the time
-- Set the time value, in order for the timer to start while clicking the start button
-- Created an clickable button
-- Declare the function that generates the questions container
-- Created choice of each question
-- Declared the attributes for the target choice
-- Fixed the error which has been encountered on the way of creating the choices and getting the attributes
-- Formatted code using lint (prettier)
+- Declared variable for the current date
+- Usage of MomentJS to set te current date
+- Get item from local storage
+- Declared a variable in order to get the current hour
+- Iterate the array by declaring a callback function
+- Get the value and check the value in time
+- Declared the variable for on click button and target event
+- Each activity will automatically be saved
+- The planner has colour scheme in order to distinguish the current hour (gray), past(red) and future(green)
+- The application is fully responsive
 - Commented the steps that has been performed by adding comments
 
 # Screenshots
@@ -41,3 +44,4 @@ TODO
 # Testing
 
 - A series of tests were performed and established after each block or styled has been added
+-

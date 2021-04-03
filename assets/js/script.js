@@ -4,8 +4,6 @@ const renderCurrentDate = () => {
   const displayNow = moment().format("dddd, MMMM Do");
 };
 
-//const currentTime = () => {};
-
 const renderCalendarEvents = () => {
   //Get from local storage
   const plannerEvents = JSON.parse(localStorage.getItem("plannerEvents"));
@@ -40,8 +38,9 @@ const renderCalendarEvents = () => {
     );
   }
 };
-
+//Declared variable on click
 const onClick = function () {
+  //declare variable target
   const target = $(event.target);
   const currentTarget = $(event.currentTarget);
   if (target.is("button")) {
@@ -52,7 +51,7 @@ const onClick = function () {
       ...plannerEvents,
       [key]: value,
     };
-
+    //set item to local storage
     localStorage.setItem("plannerEvents", JSON.stringify(newObject));
   }
 };

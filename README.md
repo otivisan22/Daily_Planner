@@ -39,7 +39,7 @@ code .
 
 # Screenshots
 
-TODO
+![screenshot1](./assets/images/daily_planner.png)
 
 # Testing
 

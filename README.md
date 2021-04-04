@@ -40,8 +40,14 @@ code .
 # Screenshots
 
 ![screenshot1](./assets/images/daily_planner.png)
+![screenshot2](./assets/images/daily_planner1.png)
+![screenshot3](./assets/images/daily_planner2.png)
 
 # Testing
 
-- A series of tests were performed and established after each block or styled has been added
--
+- A series of tests were performed after each variable has been declared
+- Also after the timeblocks has been added
+- I invite you to see below that you can save on this daily planner your most important events of the day, and also the planner has colour scheme in order to distinguish the current hour (gray), past(red) and future(green)
+
+![screenshot2](./assets/images/daily_planner1.png)
+![screenshot3](./assets/images/daily_planner2.png)
